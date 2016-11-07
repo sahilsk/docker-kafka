@@ -19,7 +19,7 @@ Run
 ---
 
 ```bash
-docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=`docker-machine ip \`docker-machine active\`` --env ADVERTISED_PORT=9092 spotify/kafka
+docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=`docker-machine ip \`docker-machine active\`` --env ADVERTISED_PORT=9092 sahilsk/kafka
 ```
 
 ```bash
@@ -35,7 +35,7 @@ kafka-console-consumer.sh --zookeeper $ZOOKEEPER --topic test
 Running the proxy
 -----------------
 
-Take the same parameters as the spotify/kafka image with some new ones:
+Take the same parameters as the sahilsk/kafka image with some new ones:
  * `CONSUMER_THREADS` - the number of threads to consume the source kafka 7 with
  * `TOPICS` - whitelist of topics to mirror
  * `ZK_CONNECT` - the zookeeper connect string of the source kafka 7
@@ -54,7 +54,7 @@ docker run -p 2181:2181 -p 9092:9092 \
 
 In the box
 ---
-* **spotify/kafka**
+* **sahilsk/kafka**
 
   The docker image with both Kafka and Zookeeper. Built from the `kafka`
   directory.
@@ -67,14 +67,14 @@ In the box
 Public Builds
 ---
 
-https://registry.hub.docker.com/u/spotify/kafka/
+https://registry.hub.docker.com/u/sahilsk/kafka/
 
 https://registry.hub.docker.com/u/spotify/kafkaproxy/
 
 Build from Source
 ---
 
-    docker build -t spotify/kafka kafka/
+    docker build -t sahilsk/kafka kafka/
     docker build -t spotify/kafkaproxy kafkaproxy/
 
 Todo
